@@ -2,7 +2,7 @@ package com.joelcoulson.enumerated;
 
 public enum PrinterType {
 
-    DOTMATRIX(5), BUBBLEJET(15), LASER(50);
+    DOTMATRIX(5), BUBBLEJET(16), LASER(50);
 
     private int pagePrint;
 
