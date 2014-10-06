@@ -4,11 +4,11 @@ import java.util.NavigableMap;
 import java.util.NavigableSet;
 import java.util.TreeMap;
 
-public class TreeMapTest {
+public class NavigableMapTest {
 
     public static void main(String[] args) {
 
-        NavigableMap<Integer, String> map = new TreeMap<>();
+        NavigableMap<Integer, String> map = new TreeMap();
 
         map.put(1, "one");
         map.put(5, "five");
