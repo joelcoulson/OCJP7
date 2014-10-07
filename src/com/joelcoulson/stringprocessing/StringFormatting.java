@@ -7,5 +7,4 @@ public class StringFormatting {
 		String name = "Joel";
 		System.out.printf("%f %s", number, name);
 	}
-	
 }
