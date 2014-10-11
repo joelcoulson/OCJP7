@@ -1,0 +1,4 @@
+Some Snapchat users are waking up to an unpleasant surprise this morning.
+A cache nearly 13GB of private Snapchats is now circulating through 4Chan, in a leak the users have dubbed The Snappening.
+Snapchat has faced security problems before, but this time the fault appears to be with a third-party app used to catalog snaps that would otherwise be deleted.
+While users assumed the snaps would only be visible to Snapchat HQ and the third-party app, a data breach left them circulating through the open web.
