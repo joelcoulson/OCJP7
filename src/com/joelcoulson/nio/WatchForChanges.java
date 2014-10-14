@@ -15,18 +15,22 @@ public class WatchForChanges {
             // we create a new watch service via the path object
             watchService = path.getFileSystem().newWatchService();
 
-            // we register the watch service against the path, looking for modification events
+            // registers the file located by this path with a watch service. in this
+            // case, all modify events are watched for within the path
             path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
 
             // infinitely loop
-            for (; ; ) {
+            for (;;) {
                 WatchKey key = null;
                 try {
+                    // retrieves and removes the next watch key. waits if none are present
                     key = watchService.take();
                 } catch (InterruptedException ie) {
                     System.out.println(ie.getMessage());
                 }
 
+                // retrieves and removes all pending events for this watch key
+                // returning a List of the events that were retrieved
                 for (WatchEvent<?> event : key.pollEvents()) {
                     switch (event.kind().name()) {
                         case "OVERFLOW":
