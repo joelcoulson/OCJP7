@@ -3,7 +3,7 @@ package com.joelcoulson.nio;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
-// here we extend the SimpleFileVisit class and override some methods
+// here we extend the SimpleFileVisit interface and override some methods
 public class FileVisitor extends SimpleFileVisitor<Path> {
 
     private String pattern;
