@@ -7,7 +7,7 @@ public class WatchForChanges {
 
     public static void main(String[] args) {
 
-        Path path = Paths.get("C:\\Users\\jcoulson\\Projects\\OCJP7\\");
+        Path path = Paths.get("/tmp/");
         WatchService watchService = null;
 
         try {
