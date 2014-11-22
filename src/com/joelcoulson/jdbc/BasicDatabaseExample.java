@@ -2,9 +2,9 @@ package com.joelcoulson.jdbc;
 
 import java.sql.*;
 
-public class BasicDatabaseTest {
+public class BasicDatabaseExample {
 
-    private final String URL = "jdbc:mysql://localhost:3306/";
+    private final String URL = "jdbc:mysql://10.1.1.200:3306/";
     private final String DATABASE = "test";
     private final String USER = "root";
     private final String PASSWORD = "";
@@ -76,7 +76,7 @@ public class BasicDatabaseTest {
             // fetch the resultset
             ResultSet resultSet = statement.getResultSet();
 
-            // move the pointer to the first column
+            // move the pointer to the first row
             resultSet.absolute(1);
 
             // update the rows with the new name
@@ -116,7 +116,7 @@ public class BasicDatabaseTest {
     }
 
     public static void main(String[] args) {
-        BasicDatabaseTest basicDatabaseTest = new BasicDatabaseTest();
+        BasicDatabaseExample basicDatabaseTest = new BasicDatabaseExample();
 
         // insert a couple of rows
         basicDatabaseTest.insertRow("John", 37);

@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class BasicDatabaseTransactions {
 
-    private final static String URL = "jdbc:mysql://localhost:3306/";
+    private final static String URL = "jdbc:mysql://10.1.1.200:3306/";
     private final static String DATABASE = "test";
     private final static String USER = "root";
     private final static String PASSWORD = "";
