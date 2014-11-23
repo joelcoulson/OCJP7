@@ -6,15 +6,11 @@ public class SuperBasicDatabaseExample {
 
     public static void main(String[] args) {
 
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-
-        try {
-
-            connection = DriverManager.getConnection("jdbc:mysql://10.1.1.200:3306/test", "root", "");
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            resultSet = statement.executeQuery("SELECT * FROM Person");
+        // note the try-with-resources block means that we do not need to
+        // explicitly close resources within a finally block
+        try(Connection connection = DriverManager.getConnection("jdbc:mysql://10.1.1.200:3306/test", "root", "");
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Person")) {
 
             // displaying results
             while(resultSet.next()) {
@@ -33,15 +29,6 @@ public class SuperBasicDatabaseExample {
 
         } catch(SQLException sqle) {
             sqle.printStackTrace();
-        } finally {
-            // close the resources
-            try {
-                connection.close();
-                statement.close();
-                resultSet.close();
-            } catch(SQLException sqle2) {
-                sqle2.printStackTrace();
-            }
         }
     }
 }

@@ -15,6 +15,7 @@ public class BasicDatabaseTransactions {
         Statement statement = null;
         ResultSet resultSet = null;
 
+        // note that we're doing this the old way - without a try-with-resources block
         try {
             // make a connection to the database
             connection = DriverManager.getConnection(URL + DATABASE, USER, PASSWORD);
