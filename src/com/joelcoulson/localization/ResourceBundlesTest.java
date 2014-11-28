@@ -7,8 +7,8 @@ public class ResourceBundlesTest {
 
     public static void sayPhrases(ResourceBundle resourceBundle) {
         System.out.println("Hello: " + resourceBundle.getString("Hello"));
-        System.out.println("Hello: " + resourceBundle.getString("Goodbye"));
-        System.out.println("Hello: " + resourceBundle.getString("I like meatballs"));
+        System.out.println("Goodbye: " + resourceBundle.getString("Goodbye"));
+        System.out.println("I like meatballs: " + resourceBundle.getString("I like meatballs"));
     }
 
     public static void main(String[] args) {
