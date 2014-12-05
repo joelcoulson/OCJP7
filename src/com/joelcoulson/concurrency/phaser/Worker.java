@@ -10,30 +10,27 @@ public class Worker extends Thread {
     public Worker(String name, Phaser phaser) {
         this.name = name;
         this.phaser = phaser;
-        // we need to register ourselves with the phaser
-        phaser.register();
     }
 
     public void run() {
+
+        phaser.register();
+
         try {
 
-            for(int i = 1; i <= 3; i++) {
-                if(i < 3) {
-                    // arrive and wait for the other threads to be ready
-                    phaser.arriveAndAwaitAdvance();
-                } else {
-                    // we've finished our tasks so deregister
-                    phaser.arriveAndDeregister();
-                }
+            Thread.sleep(1000);
 
-                System.out.println(name + " is doing task " + i);
-                //Thread.sleep((long) (Math.random() * 10000));
-                System.out.println(name + " completed task " + i);
+            for(int i = 1; i <=3; i++){
+                // wait for all threads to be ready before starting
+                phaser.arriveAndAwaitAdvance();
+
+                // execute task
+                System.out.println(name + " is executing task" + i);
+                Thread.sleep((long) (Math.random() * 10000));
+                System.out.println(name + " has completed task " + i);
             }
-
-        } catch(Exception e) {
-            e.printStackTrace();
+        } catch(InterruptedException ie) {
+            ie.printStackTrace();
         }
     }
-
 }
