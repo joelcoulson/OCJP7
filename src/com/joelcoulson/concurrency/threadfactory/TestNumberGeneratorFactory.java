@@ -1,6 +1,5 @@
 package com.joelcoulson.concurrency.threadfactory;
 
-import java.util.ArrayList;
 import java.util.concurrent.ThreadFactory;
 
 public class TestNumberGeneratorFactory {
@@ -21,5 +20,4 @@ public class TestNumberGeneratorFactory {
             e.printStackTrace();
         }
     }
-
 }

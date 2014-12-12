@@ -10,5 +10,4 @@ public class NumberGenerator implements Runnable {
             ie.printStackTrace();
         }
     }
-
 }
