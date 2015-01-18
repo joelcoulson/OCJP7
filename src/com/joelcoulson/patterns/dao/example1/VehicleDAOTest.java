@@ -1,4 +1,4 @@
-package com.joelcoulson.patterns.dao;
+package com.joelcoulson.patterns.dao.example1;
 
 public class VehicleDAOTest {
 
