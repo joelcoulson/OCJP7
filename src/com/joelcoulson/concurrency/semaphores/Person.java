@@ -1,6 +1,6 @@
 package com.joelcoulson.concurrency.semaphores;
 
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.*;
 
 public class Person extends Thread {
 
@@ -8,29 +8,29 @@ public class Person extends Thread {
     private Semaphore semaphore;
 
     public Person(String name, Semaphore semaphore) {
-        this.semaphore = semaphore;
         this.name = name;
+        this.semaphore = semaphore;
         this.start();
     }
 
     public void run() {
 
         try {
-            System.out.println(name + " is waiting to use the resource");
+            // acquire the semaphore
+            this.semaphore.acquire();
 
-            // attempt to acquire a lock and use the resource. execution will sit
-            // here and wait if the resource is already in use
-            semaphore.acquire();
+            // do something
+            System.out.println(this.name + " has the lock!");
+            int time = (int)(Math.random() * 1000);
+            Thread.sleep(time);
+            System.out.println(this.name + " worked for " + time + "ms!");
 
-            System.out.println(name + " is accessing the resource");
-            Thread.sleep(5000);
-            System.out.println(name + " is done using the resource");
-
-            // release the lock
-            semaphore.release();
+            // release the semaphore
+            this.semaphore.release();
 
         } catch(InterruptedException ie) {
             ie.printStackTrace();
         }
     }
+
 }
